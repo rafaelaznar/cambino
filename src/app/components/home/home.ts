@@ -7,6 +7,19 @@ import { Component } from '@angular/core';
   styleUrl: './home.css',
   standalone: true
 })
+
 export class Home {
+
+  nombre = 'Rafa';
+
+  constructor() {
+    console.log('constructor');
+    this.nombre = 'Jose';
+  }
+
+  ngOnInit() {
+    console.log('ngOnInit');
+    this.nombre = 'Ana';
+  }
 
 }
