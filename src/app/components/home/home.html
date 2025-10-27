@@ -94,3 +94,25 @@ Nombre2: <input [value]="nombre" (input)="cambiarNombreInput($event)" /><br />
     <p>Hola invitado! No estás registrado.</p>
   }
 }
+
+<h1>Ejemplo de expresiones en la plantilla</h1>
+
+<p>Resultado de 10 + 20 = {{ 10 + 20 }}</p>
+<p>Resultado de 10 * 5 = {{ 10 * 5 }}</p>
+<p>Resultado de 10 / 2 = {{ 10 / 2 }}</p>
+<p>Resultado de 10 - 3 = {{ 10 - 3 }}</p>
+<p>Resultado de 10 % 3 = {{ 10 % 3 }}</p>
+<p>Resultado de 2 + 3 * 4 = {{ 2 + 3 * 4 }}</p>
+<p>Ejemplo complicado: {{ complicado() }}</p>
+<h1>Ejemplo de Pipes en la plantilla</h1>
+<!-- fechas -->
+<p>Fecha actual: {{ today | date:'longDate' }}</p>
+<p>Hora actual: {{ today | date:'shortTime' }}</p>
+<p>Fecha y hora actual: {{ today | date:'full' }}</p>
+<p>Fecha personalizada: {{ today | date:'EEEE, MMMM d, y' }}</p>    
+<p>Número formateado: {{ 1234567.89 | number:'1.2-2' }}</p>
+<p>Número formateado por rafa: {{ .89 | number:'2.4-6' }}</p>
+<p>Número formateado por rafa: {{ .89879879878978 | number:'2.4-6' }}</p>
+<p>Moneda formateada: {{ 1234567.89 | currency:'USD' }}</p>
+<p>Porcentaje formateado: {{ 0.8534 | percent:'1.2-2' }}</p>
+

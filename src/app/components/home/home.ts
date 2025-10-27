@@ -18,6 +18,7 @@ export class Home {
   hasError = false;
   mostrar = false;
   items = ['Manzana', 'Banana', 'Naranja'];
+  today = new Date();
 
   constructor() {
     console.log('constructor');
@@ -53,4 +54,8 @@ export class Home {
     this.mostrar = !this.mostrar;
   }
 
+  complicado() {
+    return [1, 2, 3].map(n => n * 2).filter(n => n > 2);
+  }
+  
 }
