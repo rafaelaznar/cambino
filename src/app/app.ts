@@ -4,7 +4,7 @@ import { Landing } from './components/landing/landing';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterModule, Landing],
+  imports: [RouterModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
