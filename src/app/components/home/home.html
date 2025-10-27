@@ -1,10 +1,34 @@
 <h1>Este es el componente home</h1>
 
-<h2>Vamos a poner ejemplos de comunicación entre plantilla y controlador del componente home</h2>
+<h2>Vamos a poner ejemplos de comunicación del controlador (ts) a la plantilla (html)</h2>
 
 <h3>Interpolación</h3>
 <p>Hola {{ nombre }}</p>
 <!-- otra forma de interpolación -->
-<p>Hola {{ nombre.toUpperCase() }}</p>
+<p>Hola {{ nombre.toUpperCase() }} (en may)</p>
 <p>{{'Hola ' + nombre }}</p>
 <p>Hola {{ nombre.length }} (número de letras de mi nombre)</p>
+<p>Suma: 25 + 45 = {{25+45}}</p>
+<p>Suma: 25 + 45 = {{suma(25,45)}}</p>
+<p>Suma: 15 + 15 = {{suma(15,15)}}</p>
+
+<h3>Atributos</h3>
+<img src="https://img2.miravia.es/g/fb/kf/E4e8c96dce6744a41a91903d46b8858e6R.jpg_720x720q75.avif" alt="Imagen de homer"
+    title="{{ titulo }}" [width]="ancho">
+
+<h3>Clases</h3>
+<div [ngClass]="{error: !hasError}">Esto es un error</div>
+<div [ngClass]="{error: hasError}">Esto NO es un error</div>
+<div [ngClass]="{error: noHayError()}">Esto NO es un error</div>
+<div [ngClass]="{error: siHayError()}">Esto SI es un error</div>
+
+
+<h2>Vamos a poner ejemplos de comunicación de la plantilla (html) al controlador (ts)</h2>
+
+<button (click)="cambiarNombre()">Cambiar Nombre</button> <br/>
+
+Nombre: <input type="text" (input)="cambiarNombreInput($event)" /><br/>
+
+
+<input [value]="nombre" (input)="cambiarNombreInput($event)" /><br/>
+<p>Nombre actual: {{ nombre }}</p>
