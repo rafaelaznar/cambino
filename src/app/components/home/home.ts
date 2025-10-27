@@ -15,7 +15,9 @@ export class Home {
   nombre = 'Rafa';
   titulo = "Homer"
   ancho = 300;
-  hasError= false;
+  hasError = false;
+  mostrar = false;
+  items = ['Manzana', 'Banana', 'Naranja'];
 
   constructor() {
     console.log('constructor');
@@ -45,6 +47,10 @@ export class Home {
 
   cambiarNombreInput(event: any) {
     this.nombre = event.target.value;
+  }
+
+  flipMostrar() {
+    this.mostrar = !this.mostrar;
   }
 
 }
