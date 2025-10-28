@@ -1,0 +1,121 @@
+<h1>Este es el componente home</h1>
+
+<h2>Vamos a poner ejemplos de comunicación del controlador (ts) a la plantilla (html)</h2>
+
+<a href="/home">Volver al home</a><br>
+
+
+<h3>Interpolación</h3>
+<p>Hola {{ nombre }}</p>
+<!-- otra forma de interpolación -->
+<p>Hola {{ nombre.toUpperCase() }} (en may)</p>
+<p>{{'Hola ' + nombre }}</p>
+<p>Hola {{ nombre.length }} (número de letras de mi nombre)</p>
+<p>Suma: 25 + 45 = {{25+45}}</p>
+<p>Suma: 25 + 45 = {{suma(25,45)}}</p>
+<p>Suma: 15 + 15 = {{suma(15,15)}}</p>
+
+<h3>Atributos</h3>
+<img src="https://img2.miravia.es/g/fb/kf/E4e8c96dce6744a41a91903d46b8858e6R.jpg_720x720q75.avif" alt="Imagen de homer"
+    title="{{ titulo }}" [width]="ancho">
+
+<h3>Clases</h3>
+<div [ngClass]="{error: !hasError}">Esto es un error</div>
+<div [ngClass]="{error: hasError}">Esto NO es un error</div>
+<div [ngClass]="{error: noHayError()}">Esto NO es un error</div>
+<div [ngClass]="{error: siHayError()}">Esto SI es un error</div>
+
+
+<h2>Vamos a poner ejemplos de comunicación de la plantilla (html) al controlador (ts)</h2>
+
+<button (click)="cambiarNombre()">Cambiar Nombre</button> <br />
+
+Nombre1: <input type="text" (input)="cambiarNombreInput($event)" /><br />
+
+<h2>Double data binding</h2>
+
+Nombre2: <input [value]="nombre" (input)="cambiarNombreInput($event)" /><br />
+<p>Nombre actual: {{ nombre }}</p>
+
+
+<h1>Control del flujo en la plantilla</h1>
+
+<h3>Directiva *ngIf mejor @ if @ else</h3>
+
+<div *ngIf="noHayError()">Este es un mensaje de error (DEPRECADO)</div>
+<div *ngIf="siHayError()">Este es un mensaje de éxito (DEPRECADO)</div>
+<div *ngIf="false">Este es un mensaje de error (DEPRECADO)</div>
+<div *ngIf="true">Este es un mensaje de éxito (DEPRECADO)</div>
+
+@if (noHayError()) {
+<div>Este es un mensaje de error</div>
+} @else {
+<div>Este es un mensaje de éxito</div>
+}
+@if (false) {
+<div>Este es un mensaje de error</div>
+} @else {
+<div>Este es un mensaje de éxito</div>
+}
+
+
+@if(mostrar) {
+<h3>Mostrando el contenido1</h3>
+} @else {
+<h3>Mostrando el contenido2</h3>
+}
+
+<button (click)="flipMostrar()">Flip Mostrar</button>
+
+
+<h3>Directiva *ngFor mejor @ for</h3>
+
+<ul>
+    <li *ngFor="let item of items; let i = index">{{ i + 1 }} - {{ item }}</li>
+</ul>
+
+<ul>
+  @for (item of items; track item; let i = $index) {
+    <li>{{ i + 1 }} - {{ item }}</li>
+  }
+</ul>
+
+@for (i of [0, 1, 2, 3, 4, 5]; track i) {
+  <p>Valor de i = {{ i }}</p>
+}
+
+<h3>Directiva switch mejor @ switch @ case @ default</h3>
+
+@switch(nombre) {
+  @case('Rafa') {
+    <p>Hola Rafa! Eres el administrador.</p>
+  }
+  @case('Ana') {
+    <p>Hola Ana! Eres una usuaria normal.</p>
+  }
+  @default {
+    <p>Hola invitado! No estás registrado.</p>
+  }
+}
+
+<h1>Ejemplo de expresiones en la plantilla</h1>
+
+<p>Resultado de 10 + 20 = {{ 10 + 20 }}</p>
+<p>Resultado de 10 * 5 = {{ 10 * 5 }}</p>
+<p>Resultado de 10 / 2 = {{ 10 / 2 }}</p>
+<p>Resultado de 10 - 3 = {{ 10 - 3 }}</p>
+<p>Resultado de 10 % 3 = {{ 10 % 3 }}</p>
+<p>Resultado de 2 + 3 * 4 = {{ 2 + 3 * 4 }}</p>
+<p>Ejemplo complicado: {{ complicado() }}</p>
+<h1>Ejemplo de Pipes en la plantilla</h1>
+<!-- fechas -->
+<p>Fecha actual: {{ today | date:'longDate' }}</p>
+<p>Hora actual: {{ today | date:'shortTime' }}</p>
+<p>Fecha y hora actual: {{ today | date:'full' }}</p>
+<p>Fecha personalizada: {{ today | date:'EEEE, MMMM d, y' }}</p>    
+<p>Número formateado: {{ 1234567.89 | number:'1.2-2' }}</p>
+<p>Número formateado por rafa: {{ .89 | number:'2.4-6' }}</p>
+<p>Número formateado por rafa: {{ .89879879878978 | number:'2.4-6' }}</p>
+<p>Moneda formateada: {{ 1234567.89 | currency:'USD' }}</p>
+<p>Porcentaje formateado: {{ 0.8534 | percent:'1.2-2' }}</p>
+
