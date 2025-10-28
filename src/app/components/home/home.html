@@ -11,6 +11,17 @@
 <input type="text" placeholder="Escribe tu nombre" [value]="nombreUsuario"
   (input)="cambiarNombre($event.target.value)"><br />
 <h3>OJO, 2 tipos de enlace:</h3>
-<a href="saludoenrutado/{{nombreUsuario}}">Primero: Ir al componente saludo enrutado a que me salude</a><br>
-<a [href]="'saludoenrutado/' + nombreUsuario">Segundo: Ir al componente saludo enrutado a que me salude (usando binding)</a><br>
+<ul>
+  <li><a href="saludoenrutado/{{nombreUsuario}}">Primero: Ir al componente saludo enrutado a que me salude</a></li>
+  <li><a [href]="'saludoenrutado/' + nombreUsuario">Segundo: Ir al componente saludo enrutado a que me salude (usando
+      binding)</a></li>
+  <li><button (click)="irASaludoEnrutado()">Tercero: Ir al componente saludo enrutado a que me salude (usando
+      método con window)</button></li>
+  <li><button (click)="irASaludoEnrutado2()">Cuarto: Ir al componente saludo enrutado a que me salude (usando
+      método en el controlador y roterlink)</button></li>
+  <li>
+    <a [routerLink]="['/saludoenrutado', nombreUsuario]">Quinto: Ir al componente saludo enrutado a que me salude
+      (usando routerLink en plantilla)</a>
+  </li>
+</ul>
 <hr>

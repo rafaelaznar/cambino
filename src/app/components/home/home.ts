@@ -1,10 +1,11 @@
 
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
   standalone: true
@@ -14,8 +15,7 @@ export class Home {
 
   nombreUsuario: string = '';
 
-  constructor() {
-
+  constructor(public oRouter: Router) {
   }
 
   ngOnInit() {
@@ -24,6 +24,14 @@ export class Home {
 
   cambiarNombre(strNuevoNombre: string) {
     this.nombreUsuario = strNuevoNombre;
+  }
+
+  irASaludoEnrutado() {
+    window.location.href = 'saludoenrutado/' + this.nombreUsuario;
+  }
+
+  irASaludoEnrutado2() {
+    this.oRouter.navigate(['saludoenrutado', this.nombreUsuario]);
   }
 
 }
