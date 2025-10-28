@@ -12,7 +12,7 @@ import { Component } from '@angular/core';
 
 export class Home {
 
-
+  nombreUsuario: string = '';
 
   constructor() {
 
@@ -22,5 +22,8 @@ export class Home {
 
   }
 
-  
+  cambiarNombre(strNuevoNombre: string) {
+    this.nombreUsuario = strNuevoNombre;
+  }
+
 }
