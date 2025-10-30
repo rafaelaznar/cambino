@@ -4,6 +4,7 @@ import { Landing } from './components/landing/landing';
 import { Ejercicio01Clase } from './components/ejercicio01clase/ejercicio01clase';
 import { SaludoEnrutado } from './components/saludoenrutado/saludoenrutado';
 import { Rxjscomponent } from './components/rxjscomponent/rxjscomponent';
+import { PadreComponent } from './components/padre/padre';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -13,4 +14,5 @@ export const routes: Routes = [
     { path: 'saludoenrutado', component: SaludoEnrutado },
     { path: 'saludoenrutado/:nombre', component: SaludoEnrutado },
     { path: 'rx', component: Rxjscomponent },
+    { path: 'padre', component: PadreComponent }
 ];
