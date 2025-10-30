@@ -30,3 +30,11 @@
 <hr>
 <h3>Componente Padre e Hijo</h3>
 <a [routerLink]="['/padre']">Ir al componente Padre</a><br>
+<hr>
+<h3>Obteniendo un múmero aletorio de un servicio injectable</h3>
+<button (click)="obtenerNumeroAleatorio()">Obtener número aleatorio entre 1 y 100 desde el servicio aleatorio</button><br>
+<h2>Número aleatorio obtenido: {{numeroAleatorio}}</h2>
+<hr>
+<h3>Componente no enrutado aleatorio que gasta el servicio aleatorio</h3>
+<app-aleatorio></app-aleatorio>
+<hr>

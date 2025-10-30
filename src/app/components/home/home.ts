@@ -2,10 +2,12 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { AleatorioService } from '../../services/aleatorio';
+import { AleatorioComponent } from "../aleatorio/aleatorio";
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, AleatorioComponent],
   templateUrl: './home.html',
   styleUrl: './home.css',
   standalone: true,  
@@ -13,8 +15,9 @@ import { Router, RouterModule } from '@angular/router';
 export class Home {
 
   nombreUsuario: string = '';
+  numeroAleatorio: number = 1;
 
-  constructor(public oRouter: Router) {
+  constructor(public oRouter: Router, public aleatorioService: AleatorioService) {
   }
 
   ngOnInit() {
@@ -31,6 +34,10 @@ export class Home {
 
   irASaludoEnrutado2() {
     this.oRouter.navigate(['saludoenrutado', this.nombreUsuario]);
+  }
+
+  obtenerNumeroAleatorio() {
+    this.numeroAleatorio = this.aleatorioService.generarNumeroAleatorio(1, 100);    
   }
 
 }
