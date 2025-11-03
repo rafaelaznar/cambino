@@ -8,6 +8,7 @@ import { Post } from '../../model/postInterface';
   templateUrl: './post-list.html',
   styleUrl: './post-list.css',
 })
+
 export class PostListComponent {
 
   posts: Post[] = [];
