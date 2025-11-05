@@ -12,22 +12,28 @@ import { JsonplaceholderService } from '../../services/jsonplaceholder-service';
 export class Datos2Unrouted {
   data = inject(MAT_DIALOG_DATA);
   nUsuario: number = 0;
-  oUsuario: User = {} as User;
+  oUsuario: User | null = null;
+  loading: boolean = true;
 
   constructor(private oJsonplaceholderService: JsonplaceholderService) { 
     console.log("Datos recibidos en el hijo en el diálogo:", this.data);
     this.nUsuario = this.data.usuario_id;
-    this.oJsonplaceholderService.getUser(this.nUsuario).subscribe((user: User) => {
-      console.log("Usuario obtenido:", user);
-      this.oUsuario = user;
-    })
+    this.oJsonplaceholderService.getUser(this.nUsuario).subscribe({
+      next: (user: User) => {
+        console.log("Usuario obtenido:", user);
+        this.oUsuario = user;
+        this.loading = false;
+      },
+      error: (error) => {
+        console.error("Error al obtener el usuario:", error);
+        this.loading = false;
+      }
+    });
 
   }
 
   ngOnInit() {
 
   }
-
-
 
 }
