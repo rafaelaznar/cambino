@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UsuarioSelectorUnrouted } from '../usuario-selector-unrouted/usuario-selector-unrouted';
+import { User } from '../../model/userInterface';
 
 @Component({
   selector: 'app-mostrar-usuario',
@@ -10,7 +11,7 @@ import { UsuarioSelectorUnrouted } from '../usuario-selector-unrouted/usuario-se
 })
 export class MostrarUsuario {
 
-  oSelectedUser: any= null;
+  oSelectedUser: User | null = null;
 
   constructor(private oMatDialog: MatDialog) { }
 
