@@ -19,4 +19,8 @@ export class JsonplaceholderService {
   getUser(id: number): Observable<User> {
     return this.oHttpClient.get<User>(`https://jsonplaceholder.typicode.com/users/${id}`);
   }
+
+  getAllUsers(): Observable<User[]> {
+    return this.oHttpClient.get<User[]>('https://jsonplaceholder.typicode.com/users');
+  }
 }
